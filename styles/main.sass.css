@@ -1,0 +1,33 @@
+body {
+  padding: 10px; }
+
+header {
+  background-color: #ccc; }
+  header a {
+    background-color: grey;
+    height: 50px;
+    margin-left: 50px; }
+  header h1 {
+    display: inline-block; }
+
+nav {
+  background-color: #ddd;
+  overflow: auto; }
+
+.total_YTD {
+  float: right;
+  background-color: #ccc;
+  border: 2px solid #bbb; }
+
+main {
+  background-color: #eee;
+  overflow: auto; }
+
+@media screen and (min-width: 800px) {
+  .menu {
+    float: left;
+    width: 20%; }
+  .main_content {
+    float: right;
+    text-align: left;
+    width: 80%; } }
