@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 body {
   padding: 10px; }
 
@@ -14,6 +17,9 @@ nav {
   background-color: #ddd;
   overflow: auto; }
 
+ul {
+  list-style-type: none; }
+
 .total_YTD {
   float: right;
   background-color: #ccc;
@@ -21,12 +27,18 @@ nav {
 
 main {
   background-color: #eee;
-  overflow: auto; }
+  overflow: auto;
+  padding: 10px; }
+
+.menu li {
+  display: inline; }
 
 @media screen and (min-width: 800px) {
   .menu {
     float: left;
     width: 20%; }
+    .menu li {
+      display: block; }
   .main_content {
     float: right;
     text-align: left;
