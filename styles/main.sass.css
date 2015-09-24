@@ -23,15 +23,6 @@ main {
   background-color: #eee;
   overflow: auto; }
 
-.menu {
-  float: left;
-  width: 20%; }
-
-.main_content {
-  float: right;
-  text-align: left;
-  width: 80%; }
-
 @media screen and (min-width: 800px) {
   .menu {
     float: left;
