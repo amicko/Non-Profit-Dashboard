@@ -1,12 +1,9 @@
 @media screen and (min-width: 800px){
 
-	.menu{
+	.campaign_menu, .donor_menu{
 		float: left;
-		width: 20%;
-
-		li{
-			display: block;
-		}
+		clear:left;
+		width: 100%;
 
 	}
 
