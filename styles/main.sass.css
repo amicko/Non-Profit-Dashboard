@@ -1,26 +1,42 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Roboto";
+  color: #1B1D1E; }
+
+a::visited {
+  color: #1B1D1E; }
 
 body {
-  padding: 10px; }
+  background-color: #5FAD68; }
 
 header {
-  background-color: #ccc; }
+  background-color: #5FAD68; }
   header a {
     background-color: grey;
     height: 50px;
     margin-left: 50px; }
   header h1 {
-    display: inline-block; }
+    display: inline-block;
+    font-family: "Oswald";
+    color: #f9f9f9;
+    font-weight: 400; }
+  header h2 {
+    color: #f9f9f9;
+    margin-right: 20px; }
 
 nav {
-  background-color: #ddd;
+  background-color: #E5E7EA;
   overflow: auto; }
   nav .overview, nav .campaigns, nav .donors {
-    background-color: #ccc;
-    display: inline-block; }
+    background-color: #f9f9f9;
+    display: inline-block;
+    margin-top: 30px; }
   nav .overview {
     margin-left: 60px; }
+  nav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 24px; }
 
 ul {
   list-style-type: none; }
@@ -33,11 +49,10 @@ section {
 
 .total_YTD {
   float: right;
-  background-color: #ccc;
-  border: 2px solid #bbb; }
+  color: #f9f9f9; }
 
 main {
-  background-color: #eee;
+  background-color: #f9f9f9;
   overflow: auto;
   padding: 10px; }
 
@@ -53,6 +68,11 @@ main {
   background-color: #A3B5A4;
   margin-bottom: 10px;
   overflow: auto; }
+  .top_campaigns h2, .top_donors h2, .selected_campaign h2, .selected_donor h2, .donor_list h2 {
+    text-decoration: none;
+    margin: 10px;
+    max-width: 400px;
+    display: inline-block; }
 
 @media screen and (min-width: 800px) {
   .campaign_menu, .donor_menu {
