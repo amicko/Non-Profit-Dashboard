@@ -16,9 +16,20 @@ header {
 nav {
   background-color: #ddd;
   overflow: auto; }
+  nav .overview, nav .campaigns, nav .donors {
+    background-color: #ccc;
+    display: inline-block; }
+  nav .overview {
+    margin-left: 60px; }
 
 ul {
   list-style-type: none; }
+
+section {
+  width: 20%;
+  overflow: auto;
+  display: block;
+  float: left; }
 
 .total_YTD {
   float: right;
@@ -30,15 +41,24 @@ main {
   overflow: auto;
   padding: 10px; }
 
-.menu li {
-  display: inline; }
+.main_content {
+  padding-left: 10px; }
+
+.campaign_menu, .donor_menu {
+  background-color: #A3B5A4;
+  height: 200px;
+  margin-bottom: 10px; }
+
+.top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list {
+  background-color: #A3B5A4;
+  margin-bottom: 10px;
+  overflow: auto; }
 
 @media screen and (min-width: 800px) {
-  .menu {
+  .campaign_menu, .donor_menu {
     float: left;
-    width: 20%; }
-    .menu li {
-      display: block; }
+    clear: left;
+    width: 100%; }
   .main_content {
     float: right;
     text-align: left;
