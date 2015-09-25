@@ -7,6 +7,6 @@ module.exports = Backbone.Model.extend({
 		spousename: '',
 		phone: null
 	},
-	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester',
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com',
 	idAttribute: '_id'
 })
