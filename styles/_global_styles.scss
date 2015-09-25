@@ -19,8 +19,13 @@ header{
 
 	a {
 		background-color: grey;
-		height: 50px;
-		margin-left: 50px;
+		height: 35px;
+		width: 35px;
+		background: $bright_green url(../images/logo.svg) center no-repeat;
+		display: inline-block;
+		border: 2px solid $off_white;
+		padding: 4px;
+		margin-left: 10px;
 	}
 
 	h1{
@@ -30,10 +35,6 @@ header{
 		font-weight: 400;
 	}
 
-	h2{
-		color: $off_white;
-		margin-right: 20px;
-	}
 }
 
 nav{
@@ -43,17 +44,28 @@ nav{
 	.overview, .campaigns, .donors {
 		background-color: $off_white;
 		display: inline-block;
-		margin-top: 30px;
+		width: 48%;
+		margin-left: 1%;
+		text-align: center;
 	}
 
-	.overview{
-		margin-left: 60px;
+	.campaigns{
+		background-color: $soft_green;
+	}
+
+	.donors{
+		display:none;
 	}
 
 	a{
-		padding: 10px;
+		
 		text-decoration: none;
-		font-size: 24px;
+
+	}
+
+	h2{
+		margin: 10px;
+		font-size: 18px;
 
 	}
 	
@@ -70,31 +82,55 @@ section{
 	float: left;
 }
 
-.total_YTD{
-	float:right;
-	color: $off_white;
-
-	
-}
 
 main{
 	background-color: $off_white;
 	overflow: auto;
 	padding: 10px;
+	padding-top: 20px;
 }
 
 .main_content{
 	padding-left: 10px;
+	max-width: 400px;
+	clear: left;
+
+	.total_YTD{
+		float: left;
+		color: $off_white;
+		font-size: 20px;
+
+		h2{
+			color: $bright_green;
+			font-size: 20px;
+			margin-top: 0;
+		}
+	}
+
+	.border{
+		background-color: $soft_green;
+
+		h2:nth-child(2){
+		float:right;
+		}
+	}
+
+	.top_campaigns{
+		clear:left;
+	}
+
+	a{display: inline-block;}
+
 }
 
 .campaign_menu, .donor_menu{
 	background-color: #A3B5A4;
 	height: 200px;
 	margin-bottom: 10px;
+	display:none;
 }
 
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list{
-	background-color: #A3B5A4;
 	margin-bottom: 10px;
 	overflow: auto;
 
@@ -102,9 +138,9 @@ main{
 
 	h2{
 		text-decoration: none;
-		margin: 10px;
-		max-width: 400px;
+		margin: 6px;
 		display: inline-block;
+		font-size: 20px;
 	}
 }
 

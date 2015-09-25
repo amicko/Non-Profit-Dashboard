@@ -13,16 +13,18 @@ header {
   background-color: #5FAD68; }
   header a {
     background-color: grey;
-    height: 50px;
-    margin-left: 50px; }
+    height: 35px;
+    width: 35px;
+    background: #5FAD68 url(../images/logo.svg) center no-repeat;
+    display: inline-block;
+    border: 2px solid #f9f9f9;
+    padding: 4px;
+    margin-left: 10px; }
   header h1 {
     display: inline-block;
     font-family: "Oswald";
     color: #f9f9f9;
     font-weight: 400; }
-  header h2 {
-    color: #f9f9f9;
-    margin-right: 20px; }
 
 nav {
   background-color: #E5E7EA;
@@ -30,13 +32,18 @@ nav {
   nav .overview, nav .campaigns, nav .donors {
     background-color: #f9f9f9;
     display: inline-block;
-    margin-top: 30px; }
-  nav .overview {
-    margin-left: 60px; }
+    width: 48%;
+    margin-left: 1%;
+    text-align: center; }
+  nav .campaigns {
+    background-color: #C8D3C8; }
+  nav .donors {
+    display: none; }
   nav a {
-    padding: 10px;
-    text-decoration: none;
-    font-size: 24px; }
+    text-decoration: none; }
+  nav h2 {
+    margin: 10px;
+    font-size: 18px; }
 
 ul {
   list-style-type: none; }
@@ -47,32 +54,47 @@ section {
   display: block;
   float: left; }
 
-.total_YTD {
-  float: right;
-  color: #f9f9f9; }
-
 main {
   background-color: #f9f9f9;
   overflow: auto;
-  padding: 10px; }
+  padding: 10px;
+  padding-top: 20px; }
 
 .main_content {
-  padding-left: 10px; }
+  padding-left: 10px;
+  max-width: 400px;
+  clear: left; }
+  .main_content .total_YTD {
+    float: left;
+    color: #f9f9f9;
+    font-size: 20px; }
+    .main_content .total_YTD h2 {
+      color: #5FAD68;
+      font-size: 20px;
+      margin-top: 0; }
+  .main_content .border {
+    background-color: #C8D3C8; }
+    .main_content .border h2:nth-child(2) {
+      float: right; }
+  .main_content .top_campaigns {
+    clear: left; }
+  .main_content a {
+    display: inline-block; }
 
 .campaign_menu, .donor_menu {
   background-color: #A3B5A4;
   height: 200px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  display: none; }
 
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list {
-  background-color: #A3B5A4;
   margin-bottom: 10px;
   overflow: auto; }
   .top_campaigns h2, .top_donors h2, .selected_campaign h2, .selected_donor h2, .donor_list h2 {
     text-decoration: none;
-    margin: 10px;
-    max-width: 400px;
-    display: inline-block; }
+    margin: 6px;
+    display: inline-block;
+    font-size: 20px; }
 
 @media screen and (min-width: 800px) {
   .campaign_menu, .donor_menu {
@@ -80,6 +102,20 @@ main {
     clear: left;
     width: 100%; }
   .main_content {
-    float: right;
-    text-align: left;
-    width: 80%; } }
+    text-align: left; }
+  nav {
+    background-color: #E5E7EA;
+    overflow: auto; }
+    nav .overview, nav .campaigns, nav .donors {
+      background-color: #f9f9f9;
+      display: inline-block;
+      margin-top: 30px;
+      width: auto;
+      margin-left: 0; }
+    nav .overview {
+      margin-left: 60px; }
+    nav a {
+      text-decoration: none; }
+    nav h2 {
+      margin: 10px;
+      font-size: 18px; } }

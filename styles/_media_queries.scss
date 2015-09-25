@@ -8,9 +8,39 @@
 	}
 
 	.main_content{
-		float:right;
+		
 		text-align: left;
-		width: 80%;
+		
+
+	}
+
+	nav{
+		background-color: $grey;
+		overflow: auto;
+
+		.overview, .campaigns, .donors {
+			background-color: $off_white;
+			display: inline-block;
+			margin-top: 30px;
+			width: auto;
+			margin-left: 0;
+		}
+
+		.overview{
+			margin-left: 60px;
+		}
+
+		a{
+			
+			text-decoration: none;
+
+		}
+
+		h2{
+			margin: 10px;
+			font-size: 18px;
+		}
+	
 	}
 
 }
