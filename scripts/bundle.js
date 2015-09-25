@@ -12666,7 +12666,7 @@ var Backbone = require('backbone');
 var campaignModel = require('../models/campaignModel.js');
 module.exports = Backbone.Collection.extend({
 	model: campaignModel,
-	url: 'http://tiyfe.herokuapp.com/collections/hackathon-tester-campaigns'
+	url: 'https://nonprofit-dashboard.herokuapp.com/campaigns'
 });
 
 },{"../models/campaignModel.js":7,"backbone":1}],5:[function(require,module,exports){
@@ -12676,7 +12676,7 @@ var Backbone = require('backbone');
 var donorModel = require('../models/donorModel.js');
 module.exports = Backbone.Collection.extend({
 	model: donorModel,
-	url: 'http://tiyfe.herokuapp.com/collections/hackathon-tester'
+	url: 'https://nonprofit-dashboard.herokuapp.com/'
 });
 
 },{"../models/donorModel.js":8,"backbone":1}],6:[function(require,module,exports){
@@ -12695,7 +12695,9 @@ $(document).ready(function () {
 		routes: {
 			'overview': 'goOverview',
 			'campaigns': 'goCampaigns',
-			'donors': 'goDonors'
+			'campaign/:id': 'goSelectedCampaign',
+			'donors': 'goDonors',
+			'donor/:id': 'goSelectedDonor'
 		},
 		goOverview: function goOverview() {
 			$('.top_campaigns').hide();
@@ -12716,6 +12718,16 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('.all_campaigns').show();
 		},
+		goSelectedCampaign: function goSelectedCampaign(id) {
+			console.log('test');
+			$('.top_campaigns').hide();
+			$('.top_donors').hide();
+			$('.all_campaigns').hide();
+			$('.selected_campaign').hide();
+			$('.donor_list').hide();
+			$('.selected_donor').hide();
+			$('.selected_campaign').show();
+		},
 		goDonors: function goDonors() {
 			$('.top_campaigns').hide();
 			$('.top_donors').hide();
@@ -12724,6 +12736,15 @@ $(document).ready(function () {
 			$('.donor_list').hide();
 			$('.selected_donor').hide();
 			$('.donor_list').show();
+		},
+		goSelectedDonor: function goSelectedDonor(id) {
+			console.log('Donor Success');
+			$('.top_campaigns').hide();
+			$('.top_donors').hide();
+			$('.all_campaigns').hide();
+			$('.selected_campaign').hide();
+			$('.donor_list').hide();
+			$('.selected_donor').show();
 		}
 	});
 	var foo = new Router();
@@ -12732,7 +12753,17 @@ $(document).ready(function () {
 	var campaigns = new campaignCollection();
 
 	function attachMenuCampaignList(model) {
-		$('#menuCampaignList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+		$('.menuCampaignList').append('<li><a id="a' + model.get('id') + '" href="#campaign/' + model.get('id') + '">' + model.attributes.name + '</a></li>');
+		// $('#a' + model.get('id')).on('click', function() {
+		// console.log('Success');
+		// $('.top_campaigns').hide();
+		// $('.top_donors').hide();
+		// $('.all_campaigns').hide();
+		// $('.selected_campaign').hide();
+		// $('.donor_list').hide();
+		// $('.selected_donor').hide();
+		// $('.selected_campaign').show();
+		// })
 	}
 
 	campaigns.on('add', attachMenuCampaignList);
@@ -12741,7 +12772,7 @@ $(document).ready(function () {
 	var donors = new donorCollection();
 
 	function attachMenuDonorList(model) {
-		$('#menuDonorList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+		$('.menuDonorList').append('<li><a id="a' + model.get('id') + '" href="#donor/' + model.get('id') + '">' + model.attributes.name + '</a></li>');
 	}
 
 	donors.on('add', attachMenuDonorList);
@@ -12757,7 +12788,7 @@ module.exports = Backbone.Model.extend({
 		id: null,
 		name: ''
 	},
-	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester-campaigns',
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com/campaigns',
 	idAttribute: '_id'
 });
 
@@ -12773,7 +12804,7 @@ module.exports = Backbone.Model.extend({
 		spousename: '',
 		phone: null
 	},
-	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester',
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com',
 	idAttribute: '_id'
 });
 
