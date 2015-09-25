@@ -1,0 +1,6 @@
+var Backbone = require('backbone');
+var testerModel = require('../models/donorModel.js');
+module.exports = Backbone.Collection.extend({
+	model: donorModel,
+	url: 'https://nonprofit-dashboard.herokuapp.com'
+});
