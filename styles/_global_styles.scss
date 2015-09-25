@@ -19,13 +19,15 @@ header{
 
 	a {
 		background-color: grey;
-		height: 35px;
-		width: 35px;
+		height: 28px;
+		width: 28px;
 		background: $bright_green url(../images/logo.svg) center no-repeat;
 		display: inline-block;
 		border: 2px solid $off_white;
 		padding: 4px;
 		margin-left: 10px;
+
+
 	}
 
 	h1{
@@ -33,6 +35,7 @@ header{
 		font-family:"Oswald";
 		color: $off_white;
 		font-weight: 400;
+		margin: 0;
 	}
 
 }
@@ -73,6 +76,8 @@ nav{
 
 ul{
 	list-style-type: none;
+	padding-left: 0;
+
 }
 
 section{
@@ -110,7 +115,7 @@ main{
 	.border{
 		background-color: $soft_green;
 
-		h2:nth-child(2){
+		h3:nth-child(2){
 		float:right;
 		}
 	}
@@ -136,13 +141,27 @@ main{
 
 
 
-	h2{
+	h3{
 		text-decoration: none;
-		margin: 6px;
+		margin: 5px;
 		display: inline-block;
-		font-size: 20px;
+		
 	}
 }
+
+.selected_campaign, .donor_list, .all_campaigns{
+	clear: left; 
+
+	h3{
+		display: block;
+		max-width: 400px;
+		background-color: $soft_green;
+		padding: 5px;
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
 
 
 
