@@ -1,13 +1,21 @@
 *{
 	box-sizing: border-box;
+	font-family: "Roboto";
+	color: $black;
+}
+
+a::visited{
+
+	color: $black;
 }
 
 body{
-	padding: 10px;
+	background-color: $bright_green;
+	
 }
 
 header{
-	background-color: #ccc;
+	background-color: $bright_green;
 
 	a {
 		background-color: grey;
@@ -17,20 +25,36 @@ header{
 
 	h1{
 		display: inline-block;
+		font-family:"Oswald";
+		color: $off_white;
+		font-weight: 400;
+	}
+
+	h2{
+		color: $off_white;
+		margin-right: 20px;
 	}
 }
 
 nav{
-	background-color: #ddd;
+	background-color: $grey;
 	overflow: auto;
 
 	.overview, .campaigns, .donors {
-		background-color: #ccc;
+		background-color: $off_white;
 		display: inline-block;
+		margin-top: 30px;
 	}
 
 	.overview{
 		margin-left: 60px;
+	}
+
+	a{
+		padding: 10px;
+		text-decoration: none;
+		font-size: 24px;
+
 	}
 	
 }
@@ -48,12 +72,13 @@ section{
 
 .total_YTD{
 	float:right;
-	background-color: #ccc;
-	border: 2px solid #bbb;
+	color: $off_white;
+
+	
 }
 
 main{
-	background-color: #eee;
+	background-color: $off_white;
 	overflow: auto;
 	padding: 10px;
 }
@@ -72,6 +97,15 @@ main{
 	background-color: #A3B5A4;
 	margin-bottom: 10px;
 	overflow: auto;
+
+
+
+	h2{
+		text-decoration: none;
+		margin: 10px;
+		max-width: 400px;
+		display: inline-block;
+	}
 }
 
 
