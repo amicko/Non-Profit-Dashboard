@@ -3,7 +3,9 @@
 var $ = require('jquery');
 var Backbone = require ('backbone');
 var donorCollection = require('./collections/donorCollection.js');
+var campaignCollection = require('./collections/campaignCollection.js')
 var donorModel = require('./models/donorModel.js');
+var campaignModel = require('./models/campaignModel.js');
 
 $(document).ready(function() {
 
@@ -46,5 +48,14 @@ var Router = Backbone.Router.extend({
 });
 	var foo = new Router();
 	Backbone.history.start();
+
+	var campaigns = new campaignCollection();
+
+	function attachMenuCampaignList(model) {
+		$('#menuCampaignList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+	}
+
+	campaigns.on('add', attachMenuCampaignList);
+	campaigns.fetch();
 
 })
