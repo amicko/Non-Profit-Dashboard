@@ -12663,19 +12663,31 @@ return jQuery;
 'use strict';
 
 var Backbone = require('backbone');
+var campaignModel = require('../models/campaignModel.js');
+module.exports = Backbone.Collection.extend({
+	model: campaignModel,
+	url: 'http://tiyfe.herokuapp.com/collections/hackathon-tester-campaigns'
+});
+
+},{"../models/campaignModel.js":7,"backbone":1}],5:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
 var donorModel = require('../models/donorModel.js');
 module.exports = Backbone.Collection.extend({
 	model: donorModel,
-	url: 'https://nonprofit-dashboard.herokuapp.com'
+	url: 'http://tiyfe.herokuapp.com/collections/hackathon-tester'
 });
 
-},{"../models/donorModel.js":6,"backbone":1}],5:[function(require,module,exports){
+},{"../models/donorModel.js":8,"backbone":1}],6:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
 var Backbone = require('backbone');
 var donorCollection = require('./collections/donorCollection.js');
+var campaignCollection = require('./collections/campaignCollection.js');
 var donorModel = require('./models/donorModel.js');
+var campaignModel = require('./models/campaignModel.js');
 
 $(document).ready(function () {
 
@@ -12716,9 +12728,40 @@ $(document).ready(function () {
 	});
 	var foo = new Router();
 	Backbone.history.start();
+
+	var campaigns = new campaignCollection();
+
+	function attachMenuCampaignList(model) {
+		$('#menuCampaignList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+	}
+
+	campaigns.on('add', attachMenuCampaignList);
+	campaigns.fetch();
+
+	var donors = new donorCollection();
+
+	function attachMenuDonorList(model) {
+		$('#menuDonorList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+	}
+
+	donors.on('add', attachMenuDonorList);
+	donors.fetch();
 });
 
-},{"./collections/donorCollection.js":4,"./models/donorModel.js":6,"backbone":1,"jquery":3}],6:[function(require,module,exports){
+},{"./collections/campaignCollection.js":4,"./collections/donorCollection.js":5,"./models/campaignModel.js":7,"./models/donorModel.js":8,"backbone":1,"jquery":3}],7:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+module.exports = Backbone.Model.extend({
+	defaults: {
+		id: null,
+		name: ''
+	},
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester-campaigns',
+	idAttribute: '_id'
+});
+
+},{"backbone":1}],8:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12730,11 +12773,11 @@ module.exports = Backbone.Model.extend({
 		spousename: '',
 		phone: null
 	},
-	urlRoot: 'https://nonprofit-dashboard.herokuapp.com',
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester',
 	idAttribute: '_id'
 });
 
-},{"backbone":1}]},{},[5])
+},{"backbone":1}]},{},[6])
 
 
 //# sourceMappingURL=bundle.js.map
