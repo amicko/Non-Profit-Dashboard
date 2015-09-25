@@ -12706,6 +12706,7 @@ $(document).ready(function () {
 			$('.selected_campaign').hide();
 			$('.donor_list').hide();
 			$('.selected_donor').hide();
+			$('div > ul').show();
 			$('.top_campaigns').show();
 			$('.top_donors').show();
 		},
@@ -12716,16 +12717,17 @@ $(document).ready(function () {
 			$('.selected_campaign').hide();
 			$('.donor_list').hide();
 			$('.selected_donor').hide();
+			$('div > ul').show();
 			$('.all_campaigns').show();
 		},
 		goSelectedCampaign: function goSelectedCampaign(id) {
-			console.log('test');
 			$('.top_campaigns').hide();
 			$('.top_donors').hide();
 			$('.all_campaigns').hide();
 			$('.selected_campaign').hide();
 			$('.donor_list').hide();
 			$('.selected_donor').hide();
+			$('div > ul').show();
 			$('.selected_campaign').show();
 		},
 		goDonors: function goDonors() {
@@ -12735,16 +12737,18 @@ $(document).ready(function () {
 			$('.selected_campaign').hide();
 			$('.donor_list').hide();
 			$('.selected_donor').hide();
+			$('div > ul').show();
 			$('.donor_list').show();
 		},
 		goSelectedDonor: function goSelectedDonor(id) {
-			console.log('Donor Success');
 			$('.top_campaigns').hide();
 			$('.top_donors').hide();
 			$('.all_campaigns').hide();
 			$('.selected_campaign').hide();
 			$('.donor_list').hide();
 			$('.selected_donor').show();
+			$('div > ul').hide();
+			$('#b' + id).show();
 		}
 	});
 	var foo = new Router();
@@ -12773,6 +12777,7 @@ $(document).ready(function () {
 
 	function attachMenuDonorList(model) {
 		$('.menuDonorList').append('<li><a id="a' + model.get('id') + '" href="#donor/' + model.get('id') + '">' + model.attributes.name + '</a></li>');
+		$('#selectedDonor').append('<ul  class="donorsNames" id="b' + model.get('id') + '"><li>' + model.get('name') + '</li>' + '<li>' + model.get('email') + '</li>' + '<li>' + model.get('spousename') + '</li>' + '<li>' + model.get('phone') + '</li></ul>');
 	}
 
 	donors.on('add', attachMenuDonorList);
