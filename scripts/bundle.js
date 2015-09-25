@@ -12663,7 +12663,7 @@ return jQuery;
 'use strict';
 
 var Backbone = require('backbone');
-var testerModel = require('../models/donorModel.js');
+var donorModel = require('../models/donorModel.js');
 module.exports = Backbone.Collection.extend({
 	model: donorModel,
 	url: 'https://nonprofit-dashboard.herokuapp.com'
@@ -12673,12 +12673,52 @@ module.exports = Backbone.Collection.extend({
 'use strict';
 
 var $ = require('jquery');
+var Backbone = require('backbone');
 var donorCollection = require('./collections/donorCollection.js');
 var donorModel = require('./models/donorModel.js');
 
-$(document).ready(function () {});
+$(document).ready(function () {
 
-},{"./collections/donorCollection.js":4,"./models/donorModel.js":6,"jquery":3}],6:[function(require,module,exports){
+	var Router = Backbone.Router.extend({
+		routes: {
+			'overview': 'goOverview',
+			'campaigns': 'goCampaigns',
+			'donors': 'goDonors'
+		},
+		goOverview: function goOverview() {
+			$('.top_campaigns').hide();
+			$('.top_donors').hide();
+			$('.all_campaigns').hide();
+			$('.selected_campaign').hide();
+			$('.donor_list').hide();
+			$('.selected_donor').hide();
+			$('.top_campaigns').show();
+			$('.top_donors').show();
+		},
+		goCampaigns: function goCampaigns() {
+			$('.top_campaigns').hide();
+			$('.top_donors').hide();
+			$('.all_campaigns').hide();
+			$('.selected_campaign').hide();
+			$('.donor_list').hide();
+			$('.selected_donor').hide();
+			$('.all_campaigns').show();
+		},
+		goDonors: function goDonors() {
+			$('.top_campaigns').hide();
+			$('.top_donors').hide();
+			$('.all_campaigns').hide();
+			$('.selected_campaign').hide();
+			$('.donor_list').hide();
+			$('.selected_donor').hide();
+			$('.donor_list').show();
+		}
+	});
+	var foo = new Router();
+	Backbone.history.start();
+});
+
+},{"./collections/donorCollection.js":4,"./models/donorModel.js":6,"backbone":1,"jquery":3}],6:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
