@@ -58,4 +58,15 @@ var Router = Backbone.Router.extend({
 	campaigns.on('add', attachMenuCampaignList);
 	campaigns.fetch();
 
+	var donors = new donorCollection();
+
+	function attachMenuDonorList(model) {
+		$('#menuDonorList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+	}
+
+	donors.on('add', attachMenuDonorList);
+	donors.fetch();
+
+
+
 })

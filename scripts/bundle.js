@@ -12676,7 +12676,7 @@ var Backbone = require('backbone');
 var donorModel = require('../models/donorModel.js');
 module.exports = Backbone.Collection.extend({
 	model: donorModel,
-	url: 'https://nonprofit-dashboard.herokuapp.com'
+	url: 'http://tiyfe.herokuapp.com/collections/hackathon-tester'
 });
 
 },{"../models/donorModel.js":8,"backbone":1}],6:[function(require,module,exports){
@@ -12737,6 +12737,15 @@ $(document).ready(function () {
 
 	campaigns.on('add', attachMenuCampaignList);
 	campaigns.fetch();
+
+	var donors = new donorCollection();
+
+	function attachMenuDonorList(model) {
+		$('#menuDonorList').append('<li><a href="">' + model.attributes.name + '</a></li>');
+	}
+
+	donors.on('add', attachMenuDonorList);
+	donors.fetch();
 });
 
 },{"./collections/campaignCollection.js":4,"./collections/donorCollection.js":5,"./models/campaignModel.js":7,"./models/donorModel.js":8,"backbone":1,"jquery":3}],7:[function(require,module,exports){
@@ -12764,7 +12773,7 @@ module.exports = Backbone.Model.extend({
 		spousename: '',
 		phone: null
 	},
-	urlRoot: 'https://nonprofit-dashboard.herokuapp.com',
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/hackathon-tester',
 	idAttribute: '_id'
 });
 
