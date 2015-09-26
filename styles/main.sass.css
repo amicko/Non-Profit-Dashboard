@@ -9,6 +9,11 @@ a::visited {
 body {
   background-color: #5FAD68; }
 
+ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+/* Header and Nav */
 header {
   background-color: #5FAD68; }
   header a {
@@ -42,18 +47,20 @@ nav {
     display: none; }
   nav a {
     text-decoration: none; }
-  nav h2 {
-    margin: 10px;
-    font-size: 18px; }
 
-ul {
-  list-style-type: none;
-  padding-left: 0; }
+h2 {
+  margin: 10px;
+  font-size: 18px; }
 
-section {
-  overflow: auto;
-  display: block; }
+h3 {
+  text-decoration: none;
+  display: block;
+  max-width: 400px;
+  background-color: #C8D3C8;
+  padding: 5px;
+  margin: 0; }
 
+/* Main Content */
 main {
   background-color: #f9f9f9;
   overflow: auto;
@@ -67,10 +74,10 @@ main {
   .main_content .total_YTD {
     float: left;
     color: #f9f9f9;
-    font-size: 20px; }
+    font-size: 20px;
+    overflow: auto; }
     .main_content .total_YTD h2 {
       color: #5FAD68;
-      font-size: 20px;
       margin-top: 0; }
   .main_content .border {
     background-color: #C8D3C8; }
@@ -81,32 +88,16 @@ main {
   .main_content a {
     display: inline-block; }
 
-.campaign_menu, .donor_menu {
-  background-color: #A3B5A4;
-  height: 200px;
-  margin-bottom: 10px;
-  display: none; }
-
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list {
   margin-bottom: 10px;
   overflow: auto;
+  width: 50%;
   max-width: 400px; }
-  .top_campaigns h3, .top_donors h3, .selected_campaign h3, .selected_donor h3, .donor_list h3 {
-    text-decoration: none;
-    margin: 5px;
-    display: inline-block;
-    margin-left: 0; }
 
-.selected_campaign, .donor_list, .all_campaigns, .selected_donor {
+.selected_campaign, .donor_list, .all_campaigns {
   clear: left;
+  width: 50%;
   max-width: 400px; }
-  .selected_campaign h3, .donor_list h3, .all_campaigns h3, .selected_donor h3 {
-    display: block;
-    max-width: 400px;
-    background-color: #C8D3C8;
-    padding: 5px;
-    margin-left: 0;
-    margin-top: 0; }
 
 .all_campaigns a {
   line-height: 2em; }
@@ -121,9 +112,34 @@ main {
   background-color: #eff0f1; }
 
 .selected_donor {
-  float: right; }
+  clear: left;
+  width: 100%;
+  max-width: 800px; }
   .selected_donor a {
     line-height: 1.6em; }
+  .selected_donor ul li:nth-child(3)::after {
+    content: " (Spouse)"; }
+  .selected_donor h3:nth-child(1) {
+    float: left;
+    width: 50%; }
+  .selected_donor h3:nth-child(3) {
+    float: left;
+    width: 50%; }
+  .selected_donor .left {
+    float: left;
+    clear: left;
+    width: 50%;
+    margin-top: 16px; }
+    .selected_donor .left li {
+      list-style-type: none;
+      padding-left: 0; }
+      .selected_donor .left li:nth-child(odd) {
+        background-color: #eff0f1; }
+    .selected_donor .left a {
+      line-height: 2em; }
+  .selected_donor .right {
+    float: right;
+    width: 50%; }
 
 @media screen and (min-width: 800px) {
   header {
