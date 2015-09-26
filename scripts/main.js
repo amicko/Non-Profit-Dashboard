@@ -15,6 +15,8 @@ var statsCampaignModel = require('./models/statsCampaignModel.js')
 var $campaignTab = $('.campaigns');
 var $overviewTab = $('.overview');
 var $donorsTab = $('.donors');
+var $hamburgerMenu = $('.hamburger_menu');
+var $hamburgerMenuOptions = $('.options');
 
 $(document).ready(function() {
 
@@ -159,6 +161,36 @@ $(document).ready(function() {
 		})
 	}
 
+	function campaignFocus() {
+		$campaignTab.css({'background-color': '#F9F9F9'});
+		$overviewTab.css({'background-color': '#C8D3C8'});
+		$donorsTab.css({'background-color': '#C8D3C8'})
+
+	}
+
+	function overviewFocus() {
+		$campaignTab.css({'background-color': '#C8D3C8'});
+		$overviewTab.css({'background-color': '#F9F9F9'})
+		$donorsTab.css({'background-color': '#C8D3C8'})
+
+	}
+
+	function donorsFocus() {
+		$campaignTab.css({'background-color': '#C8D3C8'});
+		$overviewTab.css({'background-color': '#C8D3C8'});
+		$donorsTab.css({'background-color': '#F9F9F9'})
+
+	}
+
+	function hamburgerMenuToggle() {
+		$hamburgerMenuOptions.toggle('slow');
+	}
+
+	function hideHamburgerMenu() {
+		$hamburgerMenuOptions.hide();
+	}
+
+
 	campaigns.on('add', attachMenuCampaignList);
 	campaigns.fetch();
 	donors.on('add', attachMenuDonorList);
@@ -169,30 +201,14 @@ $(document).ready(function() {
 	statsCampaigns.fetch();
 	statsDonors.on('add', attachTopDonors);
 	statsDonors.fetch();
+	$campaignTab.on('click', campaignFocus);
+	$overviewTab.on('click', overviewFocus);
+	$donorsTab.on('click', donorsFocus);
+	$hamburgerMenu.on('click', hamburgerMenuToggle);
+	$('.main_content').on('click', hideHamburgerMenu);
+	
 
-	function campaignFocus() {
-		$campaignTab.css({'background-color': '#F9F9F9'});
-		$overviewTab.css({'background-color': '#C8D3C8'});
-		$donorsTab.css({'background-color': '#C8D3C8'})
 
-	}
-		$campaignTab.on('click', campaignFocus);
-
-	function overviewFocus() {
-		$campaignTab.css({'background-color': '#C8D3C8'});
-		$overviewTab.css({'background-color': '#F9F9F9'})
-		$donorsTab.css({'background-color': '#C8D3C8'})
-
-	}
-		$overviewTab.on('click', overviewFocus);
-
-	function donorsFocus() {
-		$campaignTab.css({'background-color': '#C8D3C8'});
-		$overviewTab.css({'background-color': '#C8D3C8'});
-		$donorsTab.css({'background-color': '#F9F9F9'})
-
-	}
-		$donorsTab.on('click', donorsFocus);
 })
 
 

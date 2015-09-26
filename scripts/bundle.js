@@ -12727,6 +12727,8 @@ var statsCampaignModel = require('./models/statsCampaignModel.js');
 var $campaignTab = $('.campaigns');
 var $overviewTab = $('.overview');
 var $donorsTab = $('.donors');
+var $hamburgerMenu = $('.hamburger_menu');
+var $hamburgerMenuOptions = $('.options');
 
 $(document).ready(function () {
 
@@ -12865,6 +12867,32 @@ $(document).ready(function () {
 		});
 	}
 
+	function campaignFocus() {
+		$campaignTab.css({ 'background-color': '#F9F9F9' });
+		$overviewTab.css({ 'background-color': '#C8D3C8' });
+		$donorsTab.css({ 'background-color': '#C8D3C8' });
+	}
+
+	function overviewFocus() {
+		$campaignTab.css({ 'background-color': '#C8D3C8' });
+		$overviewTab.css({ 'background-color': '#F9F9F9' });
+		$donorsTab.css({ 'background-color': '#C8D3C8' });
+	}
+
+	function donorsFocus() {
+		$campaignTab.css({ 'background-color': '#C8D3C8' });
+		$overviewTab.css({ 'background-color': '#C8D3C8' });
+		$donorsTab.css({ 'background-color': '#F9F9F9' });
+	}
+
+	function hamburgerMenuToggle() {
+		$hamburgerMenuOptions.toggle('slow');
+	}
+
+	function hideHamburgerMenu() {
+		$hamburgerMenuOptions.hide();
+	}
+
 	campaigns.on('add', attachMenuCampaignList);
 	campaigns.fetch();
 	donors.on('add', attachMenuDonorList);
@@ -12875,27 +12903,11 @@ $(document).ready(function () {
 	statsCampaigns.fetch();
 	statsDonors.on('add', attachTopDonors);
 	statsDonors.fetch();
-
-	function campaignFocus() {
-		$campaignTab.css({ 'background-color': '#F9F9F9' });
-		$overviewTab.css({ 'background-color': '#C8D3C8' });
-		$donorsTab.css({ 'background-color': '#C8D3C8' });
-	}
 	$campaignTab.on('click', campaignFocus);
-
-	function overviewFocus() {
-		$campaignTab.css({ 'background-color': '#C8D3C8' });
-		$overviewTab.css({ 'background-color': '#F9F9F9' });
-		$donorsTab.css({ 'background-color': '#C8D3C8' });
-	}
 	$overviewTab.on('click', overviewFocus);
-
-	function donorsFocus() {
-		$campaignTab.css({ 'background-color': '#C8D3C8' });
-		$overviewTab.css({ 'background-color': '#C8D3C8' });
-		$donorsTab.css({ 'background-color': '#F9F9F9' });
-	}
 	$donorsTab.on('click', donorsFocus);
+	$hamburgerMenu.on('click', hamburgerMenuToggle);
+	$('.main_content').on('click', hideHamburgerMenu);
 });
 
 },{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donorCollection.js":6,"./collections/statsCampaignCollection":7,"./collections/statsDonorCollection.js":8,"./models/campaignModel.js":10,"./models/donationModel.js":11,"./models/donorModel.js":12,"./models/statsCampaignModel.js":13,"./models/statsDonorModel.js":14,"backbone":1,"jquery":3}],10:[function(require,module,exports){
