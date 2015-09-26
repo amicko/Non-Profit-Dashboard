@@ -22,8 +22,8 @@ $(document).ready(function() {
 
 	var Router = Backbone.Router.extend({
 		routes:{
-			'': 'goHome',
-			'home': 'goHome',
+			'': 'goOverview',
+			'home': 'goOverview',
 			'overview' : 'goOverview',
 			'campaigns' : 'goCampaigns',
 			'campaign/:id': 'goSelectedCampaign',
