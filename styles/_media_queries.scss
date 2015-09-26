@@ -26,6 +26,52 @@
 
 	}
 
+	.total_YTD{
+		float:right;
+		margin-right: 100px;
+
+	}
+
+	.selected_donor{
+		ul{
+			font-weight: 700;
+
+			li:nth-child(1){
+				&::before{
+					content: "Name: \00a0 \00a0 ";
+					font-weight: 400;
+				}
+			}
+
+			li:nth-child(2){
+				&::before{
+					content: "Email: \00a0 \00a0 ";
+					font-weight: 400;
+				}
+			}
+
+			li:nth-child(3){
+				&::before{
+					content: "Spouse: \00a0 \00a0 ";
+					font-weight: 400;
+				}
+			}
+
+			li:nth-child(3){
+				&::after{
+					content: "";
+				}
+			}
+
+			li:nth-child(4){
+				&::before{
+					content: "Phone:\00a0 \00a0 ";
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
 	nav{
 		background-color: $grey;
 		overflow: auto;

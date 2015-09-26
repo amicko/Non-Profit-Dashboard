@@ -105,18 +105,6 @@ main{
 	clear: left;
 	overflow:auto;
 
-	.total_YTD{
-		float: left;
-		color: $off_white;
-		font-size: 20px;
-		overflow: auto;
-
-		h2{
-			color: $bright_green;
-			margin-top: 0;
-		}
-
-	}
 
 	.border{
 		background-color: $soft_green;
@@ -134,14 +122,30 @@ main{
 
 }
 
+.total_YTD{
+		float: left;
+		color: $off_white;
+		font-size: 20px;
+		overflow: auto;
+
+		h2{
+			color: $bright_green;
+			margin-top: 0;
+		}
+
+	}
+
 
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list{
 	margin-bottom: 10px;
 	overflow: auto;
 	width: 50%;
 	max-width: 400px;
+	min-width: 190px;
 
 }
+
+
 
 .selected_campaign, .donor_list, .all_campaigns {
 	clear:left;
@@ -173,6 +177,25 @@ main{
 	
 }
 
+.donor_list{
+	li{
+			list-style-type: none;
+			padding-left: 0;
+
+			
+			&:nth-child(odd){
+				background-color: $grey2;
+			}
+		}
+
+		a{
+			line-height: 2em;
+			padding-right: 1%;
+		}	
+
+
+}
+
 .selected_donor{
 	clear:left;
 	width: 100%;
@@ -183,7 +206,8 @@ main{
 	}
 
 	ul{
-
+		font-weight: 700;
+		
 		li:nth-child(3){
 			&::after{
 				content: " (Spouse)";
@@ -193,24 +217,28 @@ main{
 
 	h3:nth-child(1){
 		float:left; 
-		width: 50%;
+		width: 49%;
 	}
 
-	h3:nth-child(3){
+	h3:nth-child(2){
 		float:left; 
-		width: 50%;
+		width: 49%;
+		margin-left: 1%;
+		
+
 	}
 
 
 	.left{
 		float:left;
 		clear: left;
-		width: 50%;
+		width: 49%;
 		margin-top: 16px;
 		
 		li{
 			list-style-type: none;
 			padding-left: 0;
+
 			
 			&:nth-child(odd){
 				background-color: $grey2;
@@ -219,16 +247,18 @@ main{
 
 		a{
 			line-height: 2em;
+			padding-right: 1%;
 		}
 		
 	}
 
 	.right{
-		float:right;
-		width: 50%;
+		float:left;
+		width: 49%;
+		margin-left: 1%;
+		overflow-x: scroll;
+		text-overflow: ellipsis;
 	}
-
-
 }
 
 
