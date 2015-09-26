@@ -12700,6 +12700,9 @@ var donationCollection = require('./collections/donationCollection.js');
 var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
+var $campaignTab = $('.campaigns');
+var $overviewTab = $('.overview');
+var $donorsTab = $('.donors');
 
 $(document).ready(function () {
 
@@ -12722,6 +12725,9 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').hide();
 			$('.total_YTD').hide();
+			$campaignTab.css({ 'background-color': '#C8D3C8' });
+			$overviewTab.css({ 'background-color': '#C8D3C8' });
+			$donorsTab.css({ 'background-color': '#C8D3C8' });
 		},
 		goOverview: function goOverview() {
 			$('.top_campaigns').hide();
@@ -12733,6 +12739,9 @@ $(document).ready(function () {
 			$('div > ul').show();
 			$('.top_campaigns').show();
 			$('.top_donors').show();
+			$campaignTab.css({ 'background-color': '#C8D3C8' });
+			$overviewTab.css({ 'background-color': '#F9F9F9' });
+			$donorsTab.css({ 'background-color': '#C8D3C8' });
 		},
 		goCampaigns: function goCampaigns() {
 			$('.top_campaigns').hide();
@@ -12743,6 +12752,9 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.all_campaigns').show();
+			$campaignTab.css({ 'background-color': '#F9F9F9' });
+			$overviewTab.css({ 'background-color': '#C8D3C8' });
+			$donorsTab.css({ 'background-color': '#C8D3C8' });
 		},
 		goSelectedCampaign: function goSelectedCampaign(id) {
 			$('.top_campaigns').hide();
@@ -12755,6 +12767,9 @@ $(document).ready(function () {
 			$('.selected_campaign').show();
 			$('h3 > span').hide();
 			$('#c' + id).show();
+			$campaignTab.css({ 'background-color': '#F9F9F9' });
+			$overviewTab.css({ 'background-color': '#C8D3C8' });
+			$donorsTab.css({ 'background-color': '#C8D3C8' });
 		},
 		goDonors: function goDonors() {
 			$('.top_campaigns').hide();
@@ -12765,6 +12780,9 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.donor_list').show();
+			$campaignTab.css({ 'background-color': '#C8D3C8' });
+			$overviewTab.css({ 'background-color': '#C8D3C8' });
+			$donorsTab.css({ 'background-color': '#F9F9F9' });
 		},
 		goSelectedDonor: function goSelectedDonor(id) {
 			$('.top_campaigns').hide();
@@ -12775,6 +12793,9 @@ $(document).ready(function () {
 			$('.selected_donor').show();
 			$('div > ul').hide();
 			$('#b' + id).show();
+			$campaignTab.css({ 'background-color': '#C8D3C8' });
+			$overviewTab.css({ 'background-color': '#C8D3C8' });
+			$donorsTab.css({ 'background-color': '#F9F9F9' });
 			// if(id === (href.charAt(29))) {
 			// $('#b' + id).show();
 			// console.log('successful show')
@@ -12812,6 +12833,27 @@ $(document).ready(function () {
 	donors.fetch();
 	donations.on('add', attachDonationInfo);
 	donations.fetch();
+
+	function campaignFocus() {
+		$campaignTab.css({ 'background-color': '#F9F9F9' });
+		$overviewTab.css({ 'background-color': '#C8D3C8' });
+		$donorsTab.css({ 'background-color': '#C8D3C8' });
+	}
+	$campaignTab.on('click', campaignFocus);
+
+	function overviewFocus() {
+		$campaignTab.css({ 'background-color': '#C8D3C8' });
+		$overviewTab.css({ 'background-color': '#F9F9F9' });
+		$donorsTab.css({ 'background-color': '#C8D3C8' });
+	}
+	$overviewTab.on('click', overviewFocus);
+
+	function donorsFocus() {
+		$campaignTab.css({ 'background-color': '#C8D3C8' });
+		$overviewTab.css({ 'background-color': '#C8D3C8' });
+		$donorsTab.css({ 'background-color': '#F9F9F9' });
+	}
+	$donorsTab.on('click', donorsFocus);
 });
 
 },{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donorCollection.js":6,"./models/campaignModel.js":8,"./models/donationModel.js":9,"./models/donorModel.js":10,"backbone":1,"jquery":3}],8:[function(require,module,exports){
