@@ -12669,7 +12669,7 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/campaigns'
 });
 
-},{"../models/campaignModel.js":8,"backbone":1}],5:[function(require,module,exports){
+},{"../models/campaignModel.js":10,"backbone":1}],5:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12679,7 +12679,7 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/donations'
 });
 
-},{"../models/donationModel.js":9,"backbone":1}],6:[function(require,module,exports){
+},{"../models/donationModel.js":11,"backbone":1}],6:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12689,7 +12689,27 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/'
 });
 
-},{"../models/donorModel.js":10,"backbone":1}],7:[function(require,module,exports){
+},{"../models/donorModel.js":12,"backbone":1}],7:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+var statsCampaignModel = require('../models/statsCampaignModel.js');
+module.exports = Backbone.Collection.extend({
+	model: statsCampaignModel,
+	url: 'https://nonprofit-dashboard.herokuapp.com/stats/campaigns'
+});
+
+},{"../models/statsCampaignModel.js":13,"backbone":1}],8:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+var statsDonorModel = require('../models/statsDonorModel.js');
+module.exports = Backbone.Collection.extend({
+	model: statsDonorModel,
+	url: 'https://nonprofit-dashboard.herokuapp.com/stats/donors'
+});
+
+},{"../models/statsDonorModel.js":14,"backbone":1}],9:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -12697,12 +12717,18 @@ var Backbone = require('backbone');
 var donorCollection = require('./collections/donorCollection.js');
 var campaignCollection = require('./collections/campaignCollection.js');
 var donationCollection = require('./collections/donationCollection.js');
+var statsDonorCollection = require('./collections/statsDonorCollection.js');
+var statsCampaignCollection = require('./collections/statsCampaignCollection');
 var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
+var statsDonorModel = require('./models/statsDonorModel.js');
+var statsCampaignModel = require('./models/statsCampaignModel.js');
 var $campaignTab = $('.campaigns');
 var $overviewTab = $('.overview');
 var $donorsTab = $('.donors');
+var $hamburgerMenu = $('.hamburger_menu');
+var $hamburgerMenuOptions = $('.options');
 
 $(document).ready(function () {
 
@@ -12728,6 +12754,7 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
+			$('#menuList').show();
 		},
 		goOverview: function goOverview() {
 			$('.top_campaigns').hide();
@@ -12739,6 +12766,7 @@ $(document).ready(function () {
 			$('div > ul').show();
 			$('.top_campaigns').show();
 			$('.top_donors').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#F9F9F9' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12752,6 +12780,7 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.all_campaigns').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12767,6 +12796,7 @@ $(document).ready(function () {
 			$('.selected_campaign').show();
 			$('h3 > span').hide();
 			$('#c' + id).show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12780,6 +12810,7 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.donor_list').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
@@ -12793,6 +12824,7 @@ $(document).ready(function () {
 			$('.selected_donor').show();
 			$('div > ul').hide();
 			$('#b' + id).show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
@@ -12811,6 +12843,8 @@ $(document).ready(function () {
 	var donations = new donationCollection();
 	var campaigns = new campaignCollection();
 	var donors = new donorCollection();
+	var statsDonors = new statsDonorCollection();
+	var statsCampaigns = new statsCampaignCollection();
 
 	function attachMenuCampaignList(model) {
 		$('.menuCampaignList').append('<li><a id="a' + model.get('id') + '" href="#campaign/' + model.get('id') + '">' + model.attributes.name + '</a></li>');
@@ -12827,36 +12861,62 @@ $(document).ready(function () {
 		// console.log(model.get('amount'));
 	}
 
-	campaigns.on('add', attachMenuCampaignList);
-	campaigns.fetch();
-	donors.on('add', attachMenuDonorList);
-	donors.fetch();
-	donations.on('add', attachDonationInfo);
-	donations.fetch();
+	function attachTopCampaigns(model) {
+		model.get('topThreeCampaigns').forEach(function (donor) {
+			$('#topCampList').append('<li>' + donor.campaign + '</li>');
+		});
+	}
+
+	function attachTopDonors(model) {
+		model.get('topThreeDonors').forEach(function (donors) {
+			$('#topDonorList').append('<li>' + donors.donor + '</li>');
+		});
+	}
 
 	function campaignFocus() {
 		$campaignTab.css({ 'background-color': '#F9F9F9' });
 		$overviewTab.css({ 'background-color': '#C8D3C8' });
 		$donorsTab.css({ 'background-color': '#C8D3C8' });
 	}
-	$campaignTab.on('click', campaignFocus);
 
 	function overviewFocus() {
 		$campaignTab.css({ 'background-color': '#C8D3C8' });
 		$overviewTab.css({ 'background-color': '#F9F9F9' });
 		$donorsTab.css({ 'background-color': '#C8D3C8' });
 	}
-	$overviewTab.on('click', overviewFocus);
 
 	function donorsFocus() {
 		$campaignTab.css({ 'background-color': '#C8D3C8' });
 		$overviewTab.css({ 'background-color': '#C8D3C8' });
 		$donorsTab.css({ 'background-color': '#F9F9F9' });
 	}
+
+	function hamburgerMenuToggle() {
+		$hamburgerMenuOptions.toggle('slow');
+	}
+
+	function hideHamburgerMenu() {
+		$hamburgerMenuOptions.hide();
+	}
+
+	campaigns.on('add', attachMenuCampaignList);
+	campaigns.fetch();
+	donors.on('add', attachMenuDonorList);
+	donors.fetch();
+	donations.on('add', attachDonationInfo);
+	donations.fetch();
+	statsCampaigns.on('add', attachTopCampaigns);
+	statsCampaigns.fetch();
+	statsDonors.on('add', attachTopDonors);
+	statsDonors.fetch();
+	$campaignTab.on('click', campaignFocus);
+	$overviewTab.on('click', overviewFocus);
 	$donorsTab.on('click', donorsFocus);
+	$hamburgerMenu.on('click', hamburgerMenuToggle);
+	$('.main_content').on('click', hideHamburgerMenu);
 });
 
-},{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donorCollection.js":6,"./models/campaignModel.js":8,"./models/donationModel.js":9,"./models/donorModel.js":10,"backbone":1,"jquery":3}],8:[function(require,module,exports){
+},{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donorCollection.js":6,"./collections/statsCampaignCollection":7,"./collections/statsDonorCollection.js":8,"./models/campaignModel.js":10,"./models/donationModel.js":11,"./models/donorModel.js":12,"./models/statsCampaignModel.js":13,"./models/statsDonorModel.js":14,"backbone":1,"jquery":3}],10:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12869,7 +12929,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],9:[function(require,module,exports){
+},{"backbone":1}],11:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12884,7 +12944,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],10:[function(require,module,exports){
+},{"backbone":1}],12:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12900,7 +12960,35 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}]},{},[7])
+},{"backbone":1}],13:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+module.exports = Backbone.Model.extend({
+	defaults: {
+		id: null,
+		campaign: '',
+		campaign_count: 0
+	},
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com/stats/campaigns',
+	idAttribute: '_id'
+});
+
+},{"backbone":1}],14:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+module.exports = Backbone.Model.extend({
+	defaults: {
+		id: null,
+		donor: '',
+		donation_count: 0
+	},
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com/stats/donors',
+	idAttribute: '_id'
+});
+
+},{"backbone":1}]},{},[9])
 
 
 //# sourceMappingURL=bundle.js.map
