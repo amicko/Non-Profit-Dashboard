@@ -1,0 +1,9 @@
+@mixin list_styling {
+	a{
+		line-height: 2em;
+	}
+
+	li:nth-child(odd){
+			background-color: $grey2;
+		}
+}
