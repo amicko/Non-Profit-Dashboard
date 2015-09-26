@@ -3,7 +3,9 @@
 var $ = require('jquery');
 var Backbone = require ('backbone');
 var donorCollection = require('./collections/donorCollection.js');
-var campaignCollection = require('./collections/campaignCollection.js')
+var campaignCollection = require('./collections/campaignCollection.js');
+var donationCollection = require('./collections/donationCollection.js');
+var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
 
@@ -108,6 +110,7 @@ var Router = Backbone.Router.extend({
 
 
 
-	
+
+
 
 })
