@@ -12754,6 +12754,7 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
+			$('#menuList').show();
 		},
 		goOverview: function goOverview() {
 			$('.top_campaigns').hide();
@@ -12765,6 +12766,7 @@ $(document).ready(function () {
 			$('div > ul').show();
 			$('.top_campaigns').show();
 			$('.top_donors').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#F9F9F9' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12778,6 +12780,7 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.all_campaigns').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12793,6 +12796,7 @@ $(document).ready(function () {
 			$('.selected_campaign').show();
 			$('h3 > span').hide();
 			$('#c' + id).show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
@@ -12806,6 +12810,7 @@ $(document).ready(function () {
 			$('.selected_donor').hide();
 			$('div > ul').show();
 			$('.donor_list').show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
@@ -12819,6 +12824,7 @@ $(document).ready(function () {
 			$('.selected_donor').show();
 			$('div > ul').hide();
 			$('#b' + id).show();
+			$('#menuList').show();
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
