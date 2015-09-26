@@ -12734,27 +12734,13 @@ $(document).ready(function () {
 
 	var Router = Backbone.Router.extend({
 		routes: {
-			'': 'goHome',
-			'home': 'goHome',
+			'': 'goOverview',
+			'home': 'goOverview',
 			'overview': 'goOverview',
 			'campaigns': 'goCampaigns',
 			'campaign/:id': 'goSelectedCampaign',
 			'donors': 'goDonors',
 			'donor/:id': 'goSelectedDonor'
-		},
-		goHome: function goHome() {
-			$('.top_campaigns').hide();
-			$('.top_donors').hide();
-			$('.all_campaigns').hide();
-			$('.selected_campaign').hide();
-			$('.donor_list').hide();
-			$('.selected_donor').hide();
-			$('div > ul').hide();
-			$('.total_YTD').hide();
-			$campaignTab.css({ 'background-color': '#C8D3C8' });
-			$overviewTab.css({ 'background-color': '#C8D3C8' });
-			$donorsTab.css({ 'background-color': '#C8D3C8' });
-			$('#menuList').show();
 		},
 		goOverview: function goOverview() {
 			$('.top_campaigns').hide();
@@ -12828,13 +12814,6 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
-			// if(id === (href.charAt(29))) {
-			// $('#b' + id).show();
-			// console.log('successful show')
-			// }
-			// else {
-			// $('div > ul').hide();
-			// }
 		}
 	});
 	var foo = new Router();

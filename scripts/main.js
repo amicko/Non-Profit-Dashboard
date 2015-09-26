@@ -30,21 +30,6 @@ $(document).ready(function() {
 			'donors' : 'goDonors',
 			'donor/:id': 'goSelectedDonor'
 		},
-		goHome: function() {
-			$('.top_campaigns').hide();
-			$('.top_donors').hide();
-			$('.all_campaigns').hide();
-			$('.selected_campaign').hide();
-			$('.donor_list').hide();
-			$('.selected_donor').hide();
-			$('div > ul').hide();
-			$('.total_YTD').hide();
-			$campaignTab.css({'background-color': '#C8D3C8'});
-			$overviewTab.css({'background-color': '#C8D3C8'});
-			$donorsTab.css({'background-color': '#C8D3C8'})
-			$('#menuList').show();
-
-		},
 		goOverview: function(){
 			$('.top_campaigns').hide();
 			$('.top_donors').hide();
@@ -117,13 +102,6 @@ $(document).ready(function() {
 			$campaignTab.css({'background-color': '#C8D3C8'});
 			$overviewTab.css({'background-color': '#C8D3C8'})
 			$donorsTab.css({'background-color': '#F9F9F9'})
-			// if(id === (href.charAt(29))) {
-				// $('#b' + id).show();
-				// console.log('successful show')
-			// }
-			// else {
-				// $('div > ul').hide();
-			// }
 		}
 	});
 	var foo = new Router();
@@ -171,21 +149,18 @@ $(document).ready(function() {
 		$campaignTab.css({'background-color': '#F9F9F9'});
 		$overviewTab.css({'background-color': '#C8D3C8'});
 		$donorsTab.css({'background-color': '#C8D3C8'})
-
 	}
 
 	function overviewFocus() {
 		$campaignTab.css({'background-color': '#C8D3C8'});
 		$overviewTab.css({'background-color': '#F9F9F9'})
 		$donorsTab.css({'background-color': '#C8D3C8'})
-
 	}
 
 	function donorsFocus() {
 		$campaignTab.css({'background-color': '#C8D3C8'});
 		$overviewTab.css({'background-color': '#C8D3C8'});
 		$donorsTab.css({'background-color': '#F9F9F9'})
-
 	}
 
 	function hamburgerMenuToggle() {
@@ -212,21 +187,4 @@ $(document).ready(function() {
 	$donorsTab.on('click', donorsFocus);
 	$hamburgerMenu.on('click', hamburgerMenuToggle);
 	$('.main_content').on('click', hideHamburgerMenu);
-	
-
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
