@@ -5,7 +5,6 @@
 }
 
 a::visited{
-
 	color: $black;
 }
 
@@ -14,6 +13,14 @@ body{
 	
 }
 
+ul{
+	list-style-type: none;
+	padding-left: 0;
+
+}
+
+
+/* Header and Nav */
 header{
 	background-color: $bright_green;
 
@@ -57,7 +64,8 @@ nav{
 	}
 
 	.donors{
-		display:none;
+		display: none;
+	
 	}
 
 	a{
@@ -66,26 +74,24 @@ nav{
 
 	}
 
-	h2{
-		margin: 10px;
-		font-size: 18px;
+}
 
+h2{
+	margin: 10px;
+	font-size: 18px;
+
+}
+
+h3{
+		text-decoration: none;
+		display: block;
+		max-width: 400px;
+		background-color: $soft_green;
+		padding: 5px;
+		margin: 0;
 	}
-	
-}
 
-ul{
-	list-style-type: none;
-	padding-left: 0;
-
-}
-
-section{
-	overflow:auto;
-	display: block;
-	
-}
-
+/* Main Content */
 
 main{
 	background-color: $off_white;
@@ -103,12 +109,13 @@ main{
 		float: left;
 		color: $off_white;
 		font-size: 20px;
+		overflow: auto;
 
 		h2{
 			color: $bright_green;
-			font-size: 20px;
 			margin-top: 0;
 		}
+
 	}
 
 	.border{
@@ -127,41 +134,20 @@ main{
 
 }
 
-.campaign_menu, .donor_menu{
-	background-color: #A3B5A4;
-	height: 200px;
-	margin-bottom: 10px;
-	display:none;
-}
 
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list{
 	margin-bottom: 10px;
 	overflow: auto;
+	width: 50%;
 	max-width: 400px;
 
-
-
-	h3{
-		text-decoration: none;
-		margin: 5px;
-		display: inline-block;
-		margin-left: 0;
-		
-	}
 }
 
-.selected_campaign, .donor_list, .all_campaigns, .selected_donor{
-	clear: left;
+.selected_campaign, .donor_list, .all_campaigns {
+	clear:left;
+	width: 50%;
 	max-width: 400px; 
 
-	h3{
-		display: block;
-		max-width: 400px;
-		background-color: $soft_green;
-		padding: 5px;
-		margin-left: 0;
-		margin-top: 0;
-	}
 }
 
 .all_campaigns{
@@ -188,11 +174,60 @@ main{
 }
 
 .selected_donor{
-	float: right;
+	clear:left;
+	width: 100%;
+	max-width: 800px;
 
 	a{
 		line-height: 1.6em
 	}
+
+	ul{
+
+		li:nth-child(3){
+			&::after{
+				content: " (Spouse)";
+			}
+		}
+	}
+
+	h3:nth-child(1){
+		float:left; 
+		width: 50%;
+	}
+
+	h3:nth-child(3){
+		float:left; 
+		width: 50%;
+	}
+
+
+	.left{
+		float:left;
+		clear: left;
+		width: 50%;
+		margin-top: 16px;
+		
+		li{
+			list-style-type: none;
+			padding-left: 0;
+			
+			&:nth-child(odd){
+				background-color: $grey2;
+			}
+		}
+
+		a{
+			line-height: 2em;
+		}
+		
+	}
+
+	.right{
+		float:right;
+		width: 50%;
+	}
+
 
 }
 
