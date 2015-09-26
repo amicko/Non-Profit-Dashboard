@@ -5,9 +5,13 @@ var Backbone = require ('backbone');
 var donorCollection = require('./collections/donorCollection.js');
 var campaignCollection = require('./collections/campaignCollection.js');
 var donationCollection = require('./collections/donationCollection.js');
+var statsDonorCollection = require('./collections/statsDonorCollection.js');
+var statsCampaignCollection = require('./collections/statsCampaignCollection');
 var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
+var statsDonorModel = require('./models/statsDonorModel.js');
+var statsCampaignModel = require('./models/statsCampaignModel.js')
 var $campaignTab = $('.campaigns');
 var $overviewTab = $('.overview');
 var $donorsTab = $('.donors');
@@ -120,6 +124,8 @@ $(document).ready(function() {
 	var donations = new donationCollection();
 	var campaigns = new campaignCollection();
 	var donors = new donorCollection();
+	var statsDonors = new statsDonorCollection();
+	var statsCampaigns = new statsCampaignCollection();
 
 
 	function attachMenuCampaignList(model) {
@@ -133,12 +139,24 @@ $(document).ready(function() {
 									'<li>' + model.get('email') + '</li>' +
 									'<li>' + model.get('spousename') + '</li>' +
 									'<li>' + model.get('phone') + '</li></ul>'
-								)
+								);
 	}
 
 	function attachDonationInfo(model) {
-		$('.donorsNames').append('<li>Donation Amount: $' + model.get('amount') + '</li>')
+		$('.donorsNames').append('<li>Donation Amount: $' + model.get('amount') + '</li>');
 		// console.log(model.get('amount'));
+	}
+
+	function attachTopCampaigns(model) {
+		model.get('topThreeCampaigns').forEach(function(donor){
+			$('#topCampList').append('<li>' + donor.campaign  + '</li>');
+		})
+	}
+
+	function attachTopDonors(model) {
+		model.get('topThreeDonors').forEach(function(donors){
+			$('#topDonorList').append('<li>' + donors.donor + '</li>');
+		})
 	}
 
 	campaigns.on('add', attachMenuCampaignList);
@@ -147,6 +165,10 @@ $(document).ready(function() {
 	donors.fetch();
 	donations.on('add', attachDonationInfo);
 	donations.fetch();
+	statsCampaigns.on('add', attachTopCampaigns);
+	statsCampaigns.fetch();
+	statsDonors.on('add', attachTopDonors);
+	statsDonors.fetch();
 
 	function campaignFocus() {
 		$campaignTab.css({'background-color': '#F9F9F9'});
