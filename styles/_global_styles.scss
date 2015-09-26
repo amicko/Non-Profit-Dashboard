@@ -81,10 +81,9 @@ ul{
 }
 
 section{
-	width: 20%;
 	overflow:auto;
 	display: block;
-	float: left;
+	
 }
 
 
@@ -97,8 +96,8 @@ main{
 
 .main_content{
 	padding-left: 10px;
-	max-width: 400px;
 	clear: left;
+	overflow:auto;
 
 	.total_YTD{
 		float: left;
@@ -138,6 +137,7 @@ main{
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list{
 	margin-bottom: 10px;
 	overflow: auto;
+	max-width: 400px;
 
 
 
@@ -145,12 +145,14 @@ main{
 		text-decoration: none;
 		margin: 5px;
 		display: inline-block;
+		margin-left: 0;
 		
 	}
 }
 
-.selected_campaign, .donor_list, .all_campaigns{
-	clear: left; 
+.selected_campaign, .donor_list, .all_campaigns, .selected_donor{
+	clear: left;
+	max-width: 400px; 
 
 	h3{
 		display: block;
@@ -162,6 +164,36 @@ main{
 	}
 }
 
+.all_campaigns{
+	a {line-height: 2em;}
 
+	ul{
+		li:nth-child(odd){
+			background-color: $grey2;
+		}
+	}
+}
+
+.selected_campaign{
+	
+
+	a{
+		line-height: 2em;
+	}
+
+	li:nth-child(odd){
+		background-color: $grey2;
+	}
+	
+}
+
+.selected_donor{
+	float: right;
+
+	a{
+		line-height: 1.6em
+	}
+
+}
 
 
