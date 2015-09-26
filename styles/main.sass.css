@@ -71,14 +71,6 @@ main {
   padding-left: 10px;
   clear: left;
   overflow: auto; }
-  .main_content .total_YTD {
-    float: left;
-    color: #f9f9f9;
-    font-size: 20px;
-    overflow: auto; }
-    .main_content .total_YTD h2 {
-      color: #5FAD68;
-      margin-top: 0; }
   .main_content .border {
     background-color: #C8D3C8; }
     .main_content .border h3:nth-child(2) {
@@ -88,11 +80,21 @@ main {
   .main_content a {
     display: inline-block; }
 
+.total_YTD {
+  float: left;
+  color: #f9f9f9;
+  font-size: 20px;
+  overflow: auto; }
+  .total_YTD h2 {
+    color: #5FAD68;
+    margin-top: 0; }
+
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list {
   margin-bottom: 10px;
   overflow: auto;
   width: 50%;
-  max-width: 400px; }
+  max-width: 400px;
+  min-width: 190px; }
 
 .selected_campaign, .donor_list, .all_campaigns {
   clear: left;
@@ -111,24 +113,37 @@ main {
 .selected_campaign li:nth-child(odd) {
   background-color: #eff0f1; }
 
+.donor_list li {
+  list-style-type: none;
+  padding-left: 0; }
+  .donor_list li:nth-child(odd) {
+    background-color: #eff0f1; }
+
+.donor_list a {
+  line-height: 2em;
+  padding-right: 1%; }
+
 .selected_donor {
   clear: left;
   width: 100%;
   max-width: 800px; }
   .selected_donor a {
     line-height: 1.6em; }
-  .selected_donor ul li:nth-child(3)::after {
-    content: " (Spouse)"; }
+  .selected_donor ul {
+    font-weight: 700; }
+    .selected_donor ul li:nth-child(3)::after {
+      content: " (Spouse)"; }
   .selected_donor h3:nth-child(1) {
     float: left;
-    width: 50%; }
-  .selected_donor h3:nth-child(3) {
+    width: 49%; }
+  .selected_donor h3:nth-child(2) {
     float: left;
-    width: 50%; }
+    width: 49%;
+    margin-left: 1%; }
   .selected_donor .left {
     float: left;
     clear: left;
-    width: 50%;
+    width: 49%;
     margin-top: 16px; }
     .selected_donor .left li {
       list-style-type: none;
@@ -136,10 +151,14 @@ main {
       .selected_donor .left li:nth-child(odd) {
         background-color: #eff0f1; }
     .selected_donor .left a {
-      line-height: 2em; }
+      line-height: 2em;
+      padding-right: 1%; }
   .selected_donor .right {
-    float: right;
-    width: 50%; }
+    float: left;
+    width: 49%;
+    margin-left: 1%;
+    overflow-x: scroll;
+    text-overflow: ellipsis; }
 
 @media screen and (min-width: 800px) {
   header {
@@ -155,6 +174,25 @@ main {
     width: 100%; }
   .main_content {
     text-align: left; }
+  .total_YTD {
+    float: right;
+    margin-right: 100px; }
+  .selected_donor ul {
+    font-weight: 700; }
+    .selected_donor ul li:nth-child(1)::before {
+      content: "Name: \00a0 \00a0 ";
+      font-weight: 400; }
+    .selected_donor ul li:nth-child(2)::before {
+      content: "Email: \00a0 \00a0 ";
+      font-weight: 400; }
+    .selected_donor ul li:nth-child(3)::before {
+      content: "Spouse: \00a0 \00a0 ";
+      font-weight: 400; }
+    .selected_donor ul li:nth-child(3)::after {
+      content: ""; }
+    .selected_donor ul li:nth-child(4)::before {
+      content: "Phone:\00a0 \00a0 ";
+      font-weight: 400; }
   nav {
     background-color: #E5E7EA;
     overflow: auto; }
