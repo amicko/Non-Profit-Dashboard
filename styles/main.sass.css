@@ -168,7 +168,8 @@ main {
   width: 100%;
   max-width: 800px; }
   .selected_donor .donorsNames {
-    overflow: scroll; }
+    overflow: scroll;
+    height: 300px; }
   .selected_donor a {
     line-height: 1.6em; }
   .selected_donor ul {
