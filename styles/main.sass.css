@@ -106,9 +106,11 @@ main {
   padding-top: 20px; }
 
 .main_content {
-  padding-left: 10px;
   clear: left;
   overflow: auto; }
+  .main_content .container {
+    overflow: auto;
+    margin: 0; }
   .main_content .border {
     background-color: #C8D3C8; }
     .main_content .border h3:nth-child(2) {
@@ -256,15 +258,15 @@ main {
       margin: 0; }
     header .hamburger_menu, header .options {
       display: none; }
-  .campaign_menu, .donor_menu {
-    float: left;
-    clear: left;
-    width: 100%; }
+  .nav_2 {
+    padding-left: 20%; }
   .main_content {
     text-align: left; }
+    .main_content .container {
+      margin: 0 auto;
+      max-width: 800px; }
   .total_TD {
-    float: right;
-    margin-right: 100px; }
+    float: right; }
   .selected_donor ul li:nth-child(1)::before {
     content: "Name: \00a0 \00a0 ";
     font-weight: 400; }
