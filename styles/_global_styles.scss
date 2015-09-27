@@ -158,9 +158,13 @@ main{
 }
 
 .main_content{
-	padding-left: 10px;
 	clear: left;
 	overflow:auto;
+
+	.container{
+		overflow: auto;
+		margin: 0;
+	}
 
 
 	.border{
