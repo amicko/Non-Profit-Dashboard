@@ -16,31 +16,34 @@ ul {
 /* Header and Nav */
 header {
   background-color: #5FAD68;
-  position: relative; }
+  position: relative;
+  padding: 10px; }
   header .logo {
     height: 28px;
     width: 28px;
     background: #5FAD68 url(../images/logo.svg) center no-repeat;
     display: inline-block;
-    border: 2px solid #f9f9f9;
+    border: 1px solid #f9f9f9;
     padding: 4px;
     margin-left: 10px;
-    margin-right: 6px; }
+    margin-right: 6px;
+    margin-top: 4px; }
   header h1 {
     display: inline-block;
-    font-family: "Oswald";
+    font-family: "Playfair Display";
     color: #f9f9f9;
     font-weight: 400;
-    margin: 0; }
+    margin: 0;
+    display: none; }
   header .hamburger_menu {
-    background: url("../images/hamburger.svg") no-repeat center;
+    background: url("../images/hamburger2.svg") no-repeat right;
     display: block;
     height: 20px;
-    width: 20px;
+    width: 80px;
     float: right;
-    margin-right: 20px;
-    margin-top: 14px;
-    border: none; }
+    border: none;
+    margin-top: 8px;
+    margin-right: 10px; }
   header .options {
     float: right;
     background-color: #5FAD68;
@@ -48,6 +51,7 @@ header {
     z-index: 9999;
     position: absolute;
     right: 0;
+    top: 56px;
     color: #f9f9f9; }
     header .options ul {
       margin: 0;
@@ -64,7 +68,7 @@ header {
 nav {
   background-color: #E5E7EA;
   overflow: auto; }
-  nav .overview, nav .campaigns, nav .donors {
+  nav .overview, nav .campaigns, nav .donors, nav .overview_1, nav .campaigns_1, nav .donors_1 {
     background-color: #f9f9f9;
     display: inline-block;
     width: 48%;
@@ -140,21 +144,18 @@ main {
   .top_campaigns li, .top_donors li {
     line-height: 2em; }
 
-.all_campaigns a, .top_campaigns a, .top_donors a {
+.all_campaigns a, .top_campaigns a, .top_donors a, .selected_campaign a {
   line-height: 2em; }
 
-.all_campaigns ul li:nth-child(odd), .top_campaigns ul li:nth-child(odd), .top_donors ul li:nth-child(odd) {
-  background-color: #eff0f1; }
+.all_campaigns ul li, .top_campaigns ul li, .top_donors ul li, .selected_campaign ul li {
+  padding-left: 6px; }
 
-.selected_campaign a {
-  line-height: 2em; }
-
-.selected_campaign li:nth-child(odd) {
+.all_campaigns ul li:nth-child(odd), .top_campaigns ul li:nth-child(odd), .top_donors ul li:nth-child(odd), .selected_campaign ul li:nth-child(odd) {
   background-color: #eff0f1; }
 
 .donor_list li {
   list-style-type: none;
-  padding-left: 0; }
+  padding-left: 6px; }
   .donor_list li:nth-child(odd) {
     background-color: #eff0f1; }
 
@@ -170,6 +171,8 @@ main {
     line-height: 1.6em; }
   .selected_donor ul {
     font-weight: 700; }
+    .selected_donor ul li {
+      padding-left: 6px; }
     .selected_donor ul li:nth-child(3)::after {
       content: " (Spouse)"; }
     .selected_donor ul li:nth-child(4)::after {
@@ -177,7 +180,7 @@ main {
       display: block;
       border-top: 2px solid #C8D3C8;
       background-color: #C8D3C8;
-      margin: 12px 0;
+      margin: 12px 0 12px -6px;
       font-size: 18px;
       padding: 5px; }
   .selected_donor h3:nth-child(1) {
@@ -194,7 +197,7 @@ main {
     margin-top: 16px; }
     .selected_donor .left li {
       list-style-type: none;
-      padding-left: 0; }
+      padding-left: 6px; }
       .selected_donor .left li:nth-child(odd) {
         background-color: #eff0f1; }
     .selected_donor .left a {
@@ -237,7 +240,9 @@ main {
       margin-left: 50px;
       margin-right: 15px; }
     header h1 {
-      margin: 10px; }
+      margin: 10px;
+      display: inline-block;
+      margin: 0; }
     header .hamburger_menu, header .options {
       display: none; }
   .campaign_menu, .donor_menu {
