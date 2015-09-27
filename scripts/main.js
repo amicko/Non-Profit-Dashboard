@@ -4,9 +4,11 @@ var $ = require('jquery');
 var Backbone = require ('backbone');
 var donorCollection = require('./collections/donorCollection.js');
 var campaignCollection = require('./collections/campaignCollection.js');
+var donationTotalCollection = require('./collections/donationTotalCollection.js');
 var donationCollection = require('./collections/donationCollection.js');
 var statsDonorCollection = require('./collections/statsDonorCollection.js');
 var statsCampaignCollection = require('./collections/statsCampaignCollection');
+var donationTotalModel = require('./models/donationTotalModel.js');
 var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
@@ -133,6 +135,7 @@ $(document).ready(function() {
 	var donors = new donorCollection();
 	var statsDonors = new statsDonorCollection();
 	var statsCampaigns = new statsCampaignCollection();
+	var donationTotals = new donationTotalCollection();
 
 
 	function attachMenuCampaignList(model) {
@@ -151,7 +154,6 @@ $(document).ready(function() {
 
 	function attachDonationInfo(model) {
 		$('.donorsNames').append('<li>Donation Amount: $' + model.get('amount') + '</li>');
-		// console.log(model.get('amount'));
 	}
 
 	function attachTopCampaigns(model) {
@@ -164,6 +166,10 @@ $(document).ready(function() {
 		model.get('topThreeDonors').forEach(function(donors){
 			$('#topDonorList').append('<li>' + donors.donor + '</li>');
 		})
+	}
+
+	function attachDonationTotal(model) {
+		$('.toDateTotal').html('$' + model.get('1') + '.00');
 	}
 
 	function campaignFocus() {
@@ -203,6 +209,8 @@ $(document).ready(function() {
 	statsCampaigns.fetch();
 	statsDonors.on('add', attachTopDonors);
 	statsDonors.fetch();
+	donationTotals.on('add', attachDonationTotal);
+	donationTotals.fetch();
 	$campaignTab.on('click', campaignFocus);
 	$overviewTab.on('click', overviewFocus);
 	$donorsTab.on('click', donorsFocus);
