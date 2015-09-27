@@ -179,15 +179,25 @@ main{
 
 }
 
-.total_YTD{
+.total_TD{
 		float: left;
 		color: $off_white;
 		font-size: 20px;
 		overflow: auto;
+		display:inline;
+		margin: 20px 0;
+		border-left: 2px solid $bright_green;
+		padding-left: 6px;
+
 
 		h2{
 			color: $bright_green;
 			margin-top: 0;
+			margin-left: 0;
+		}
+		.toDateTotal{
+			color: $bright_green;
+			float:left;
 		}
 
 	}

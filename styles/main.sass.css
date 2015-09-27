@@ -118,14 +118,22 @@ main {
   .main_content a {
     display: inline-block; }
 
-.total_YTD {
+.total_TD {
   float: left;
   color: #f9f9f9;
   font-size: 20px;
-  overflow: auto; }
-  .total_YTD h2 {
+  overflow: auto;
+  display: inline;
+  margin: 20px 0;
+  border-left: 2px solid #5FAD68;
+  padding-left: 6px; }
+  .total_TD h2 {
     color: #5FAD68;
-    margin-top: 0; }
+    margin-top: 0;
+    margin-left: 0; }
+  .total_TD .toDateTotal {
+    color: #5FAD68;
+    float: left; }
 
 .top_campaigns, .top_donors, .selected_campaign, .selected_donor, .donor_list {
   margin-bottom: 10px;
@@ -254,7 +262,7 @@ main {
     width: 100%; }
   .main_content {
     text-align: left; }
-  .total_YTD {
+  .total_TD {
     float: right;
     margin-right: 100px; }
   .selected_donor ul li:nth-child(1)::before {
