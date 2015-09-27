@@ -12669,7 +12669,7 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/campaigns'
 });
 
-},{"../models/campaignModel.js":10,"backbone":1}],5:[function(require,module,exports){
+},{"../models/campaignModel.js":11,"backbone":1}],5:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12679,7 +12679,17 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/donations'
 });
 
-},{"../models/donationModel.js":11,"backbone":1}],6:[function(require,module,exports){
+},{"../models/donationModel.js":12,"backbone":1}],6:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+var donationTotalModel = require('../models/donationTotalModel.js');
+module.exports = Backbone.Collection.extend({
+	model: donationTotalModel,
+	url: 'https://nonprofit-dashboard.herokuapp.com/stats/total'
+});
+
+},{"../models/donationTotalModel.js":13,"backbone":1}],7:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12689,7 +12699,7 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/'
 });
 
-},{"../models/donorModel.js":12,"backbone":1}],7:[function(require,module,exports){
+},{"../models/donorModel.js":14,"backbone":1}],8:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12699,7 +12709,7 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/stats/campaigns'
 });
 
-},{"../models/statsCampaignModel.js":13,"backbone":1}],8:[function(require,module,exports){
+},{"../models/statsCampaignModel.js":15,"backbone":1}],9:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12709,16 +12719,18 @@ module.exports = Backbone.Collection.extend({
 	url: 'https://nonprofit-dashboard.herokuapp.com/stats/donors'
 });
 
-},{"../models/statsDonorModel.js":14,"backbone":1}],9:[function(require,module,exports){
+},{"../models/statsDonorModel.js":16,"backbone":1}],10:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
 var Backbone = require('backbone');
 var donorCollection = require('./collections/donorCollection.js');
 var campaignCollection = require('./collections/campaignCollection.js');
+var donationTotalCollection = require('./collections/donationTotalCollection.js');
 var donationCollection = require('./collections/donationCollection.js');
 var statsDonorCollection = require('./collections/statsDonorCollection.js');
 var statsCampaignCollection = require('./collections/statsCampaignCollection');
+var donationTotalModel = require('./models/donationTotalModel.js');
 var donationModel = require('./models/donationModel.js');
 var donorModel = require('./models/donorModel.js');
 var campaignModel = require('./models/campaignModel.js');
@@ -12844,6 +12856,7 @@ $(document).ready(function () {
 	var donors = new donorCollection();
 	var statsDonors = new statsDonorCollection();
 	var statsCampaigns = new statsCampaignCollection();
+	var donationTotals = new donationTotalCollection();
 
 	function attachMenuCampaignList(model) {
 		$('.menuCampaignList').append('<li><a id="a' + model.get('id') + '" href="#campaign/' + model.get('id') + '">' + model.attributes.name + '</a></li>');
@@ -12857,7 +12870,6 @@ $(document).ready(function () {
 
 	function attachDonationInfo(model) {
 		$('.donorsNames').append('<li>Donation Amount: $' + model.get('amount') + '</li>');
-		// console.log(model.get('amount'));
 	}
 
 	function attachTopCampaigns(model) {
@@ -12870,6 +12882,10 @@ $(document).ready(function () {
 		model.get('topThreeDonors').forEach(function (donors) {
 			$('#topDonorList').append('<li>' + donors.donor + '</li>');
 		});
+	}
+
+	function attachDonationTotal(model) {
+		$('.toDateTotal').html('$' + model.get('1') + '.00');
 	}
 
 	function campaignFocus() {
@@ -12908,6 +12924,8 @@ $(document).ready(function () {
 	statsCampaigns.fetch();
 	statsDonors.on('add', attachTopDonors);
 	statsDonors.fetch();
+	donationTotals.on('add', attachDonationTotal);
+	donationTotals.fetch();
 	$campaignTab.on('click', campaignFocus);
 	$overviewTab.on('click', overviewFocus);
 	$donorsTab.on('click', donorsFocus);
@@ -12915,7 +12933,7 @@ $(document).ready(function () {
 	$('.main_content').on('click', hideHamburgerMenu);
 });
 
-},{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donorCollection.js":6,"./collections/statsCampaignCollection":7,"./collections/statsDonorCollection.js":8,"./models/campaignModel.js":10,"./models/donationModel.js":11,"./models/donorModel.js":12,"./models/statsCampaignModel.js":13,"./models/statsDonorModel.js":14,"backbone":1,"jquery":3}],10:[function(require,module,exports){
+},{"./collections/campaignCollection.js":4,"./collections/donationCollection.js":5,"./collections/donationTotalCollection.js":6,"./collections/donorCollection.js":7,"./collections/statsCampaignCollection":8,"./collections/statsDonorCollection.js":9,"./models/campaignModel.js":11,"./models/donationModel.js":12,"./models/donationTotalModel.js":13,"./models/donorModel.js":14,"./models/statsCampaignModel.js":15,"./models/statsDonorModel.js":16,"backbone":1,"jquery":3}],11:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12928,7 +12946,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],11:[function(require,module,exports){
+},{"backbone":1}],12:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12943,7 +12961,20 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],12:[function(require,module,exports){
+},{"backbone":1}],13:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+module.exports = Backbone.Model.extend({
+	defaults: {
+		id: null,
+		1: 0
+	},
+	urlRoot: 'https://nonprofit-dashboard.herokuapp.com/stats/total',
+	idAttribute: '_id'
+});
+
+},{"backbone":1}],14:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12959,7 +12990,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],13:[function(require,module,exports){
+},{"backbone":1}],15:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12973,7 +13004,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}],14:[function(require,module,exports){
+},{"backbone":1}],16:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12987,7 +13018,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}]},{},[9])
+},{"backbone":1}]},{},[10])
 
 
 //# sourceMappingURL=bundle.js.map
