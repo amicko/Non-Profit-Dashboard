@@ -5,7 +5,6 @@
 	  <meta name="viewport" content="initial-scale=1">
 	  <meta charset="utf-8">
 	  <title> Non-Profit Management</title>
-	  <script src="https://use.typekit.net/frt7azo.js"></script>
 	  <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet" type="text/css">
 	  <link type="text/css" rel="stylesheet" href="styles/resetstylesheet.css">
 	  <link type="text/css" rel="stylesheet" href="styles/main.sass.css">
@@ -28,7 +27,19 @@
   	
   </header>
 
-  <nav>
+  <nav class="nav_1">
+  	<div class="overview">
+ 		<a href="#overview"> <h2> Overview </h2> </a>
+  	</div>
+  	<div class="campaigns">
+ 		<a href="#campaigns"> <h2> Campaigns </h2></a>
+  	</div>
+  	<div class="donors">
+ 		<a href="#donors"> <h2> Donors </h2></a>
+  	</div>
+  </nav>
+
+  <nav class="nav_2">
   	<div class="overview">
  		<a href="#overview"> <h2> Overview </h2> </a>
   	</div>
@@ -52,16 +63,14 @@
 	  	<div class="top_campaigns">
 		  	<div class= "border">
 		  		<h3> Top Campaigns </h3> 
-		  		<h3> YTD </h3>
-		  	</div>
+			</div>
 		  	<ul id="topCampList">
 		  	</ul>
 	  	</div>
 
 	  	<div class="top_donors">
 	  		<div class= "border">
-		  	<h3> Top Donors </h3>
-		  	<h3> YTD </h3>
+		  		<h3> Top Donors </h3>
 		  	</div>
 		  	<ul id="topDonorList">
 		  	</ul>
