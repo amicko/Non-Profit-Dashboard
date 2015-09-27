@@ -5,9 +5,10 @@
 		}
 	}
 
-	nav{
+	.nav_2{
 		background-color: $grey;
 		overflow: auto;
+		display:block;
 
 		.overview, .campaigns, .donors {
 			background-color: $off_white;
@@ -32,6 +33,10 @@
 			font-size: 18px;
 		}
 	
+	}
+
+	.nav_1{
+		display: none;
 	}
 
 }

@@ -18,7 +18,6 @@ header {
   background-color: #5FAD68;
   position: relative; }
   header .logo {
-    background-color: grey;
     height: 28px;
     width: 28px;
     background: #5FAD68 url(../images/logo.svg) center no-repeat;
@@ -42,10 +41,9 @@ header {
     margin-top: 14px;
     border: none; }
   header .options {
-    display: block;
     float: right;
     background-color: #5FAD68;
-    display: block;
+    display: none;
     z-index: 9999;
     position: absolute;
     right: 0;
@@ -69,15 +67,19 @@ nav {
     background-color: #f9f9f9;
     display: inline-block;
     width: 48%;
-    margin-left: 1%;
+    margin-left: 3%;
+    margin-top: 3%;
     text-align: center; }
   nav .campaigns {
-    background-color: #C8D3C8;
+    background-color: #f9f9f9;
     display: none; }
   nav .donors {
     display: none; }
   nav a {
     text-decoration: none; }
+
+.nav_2 {
+  display: none; }
 
 h2 {
   margin: 10px;
@@ -132,10 +134,13 @@ main {
   width: 50%;
   max-width: 400px; }
 
-.all_campaigns a {
+.top_campaigns li, .top_donors li {
   line-height: 2em; }
 
-.all_campaigns ul li:nth-child(odd) {
+.all_campaigns a, .top_campaigns a, .top_donors a {
+  line-height: 2em; }
+
+.all_campaigns ul li:nth-child(odd), .top_campaigns ul li:nth-child(odd), .top_donors ul li:nth-child(odd) {
   background-color: #eff0f1; }
 
 .selected_campaign a {
@@ -157,7 +162,9 @@ main {
 .selected_donor {
   clear: left;
   width: 100%;
-  max-width: 800px; }
+  max-width: 800px;
+  height: 500px;
+  overflow-y: hide; }
   .selected_donor a {
     line-height: 1.6em; }
   .selected_donor ul {
@@ -194,22 +201,25 @@ main {
 @media screen and (min-width: 550px) {
   header .hamburger_menu, header .options {
     display: none; }
-  nav {
+  .nav_2 {
     background-color: #E5E7EA;
-    overflow: auto; }
-    nav .overview, nav .campaigns, nav .donors {
+    overflow: auto;
+    display: block; }
+    .nav_2 .overview, .nav_2 .campaigns, .nav_2 .donors {
       background-color: #f9f9f9;
       display: inline-block;
       margin-top: 30px;
       width: auto;
       margin-left: 0; }
-    nav .overview {
+    .nav_2 .overview {
       margin-left: 60px; }
-    nav a {
+    .nav_2 a {
       text-decoration: none; }
-    nav h2 {
+    .nav_2 h2 {
       margin: 10px;
-      font-size: 18px; } }
+      font-size: 18px; }
+  .nav_1 {
+    display: none; } }
 
 @media screen and (min-width: 800px) {
   header {
