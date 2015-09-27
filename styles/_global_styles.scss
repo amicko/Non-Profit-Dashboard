@@ -258,6 +258,10 @@ main{
 	width: 100%;
 	max-width: 800px;
 
+	.donorsNames{
+		overflow: scroll;
+	}
+
 	a{
 		line-height: 1.6em
 	}
