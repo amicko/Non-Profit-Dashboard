@@ -24,38 +24,42 @@ ul{
 header{
 	background-color: $bright_green;
 	position: relative;
+	padding: 10px;
 
 	.logo{
 		height: 28px;
 		width: 28px;
 		background: $bright_green url(../images/logo.svg) center no-repeat;
 		display: inline-block;
-		border: 2px solid $off_white;
+		border: 1px solid $off_white;
 		padding: 4px;
 		margin-left: 10px;
 		margin-right: 6px;
+		margin-top: 4px;
 
 
 	}
 
 	h1{
 		display: inline-block;
-		font-family:"Oswald";
+		font-family:"Playfair Display";
 		color: $off_white;
 		font-weight: 400;
 		margin: 0;
+		display:none;
+
+
 	}
 
 	.hamburger_menu{
-		background: url("../images/hamburger.svg") no-repeat center;
+		background: url("../images/hamburger2.svg") no-repeat right;
 		display:block;
 		height: 20px;
-		width: 20px;
+		width: 80px; 
 		float: right;
-		margin-right: 20px;
-		margin-top: 14px;
 		border: none;
-		
+		margin-top: 8px;
+		margin-right: 10px;
 	}
 
 	.options{
@@ -65,6 +69,7 @@ header{
 		z-index: 9999;
 		position: absolute;
 		right: 0;
+		top: 56px;
 		color: $off_white;
 
 		ul{
@@ -92,12 +97,12 @@ header{
 	}
 
 }
-
+ 
 nav{
 	background-color: $grey;
 	overflow: auto;
 
-	.overview, .campaigns, .donors {
+	.overview, .campaigns, .donors, .overview_1, .campaigns_1, .donors_1 {
 		background-color: $off_white;
 		display: inline-block;
 		width: 48%;
@@ -206,41 +211,33 @@ main{
 
 .top_campaigns, .top_donors{
 	min-width: 400px;
+	
 	li{
 		line-height: 2em;
 	}
 
 }
 
-.all_campaigns, .top_campaigns, .top_donors{
+.all_campaigns, .top_campaigns, .top_donors, .selected_campaign{
 	a {
 		line-height: 2em;
 	}
 
 	ul{
+		li{
+			padding-left: 6px;
+		}
 		li:nth-child(odd){
 			background-color: $grey2;
 		}
 	}
 }
 
-.selected_campaign{
-	
-
-	a{
-		line-height: 2em;
-	}
-
-	li:nth-child(odd){
-		background-color: $grey2;
-	}
-	
-}
 
 .donor_list{
 	li{
 			list-style-type: none;
-			padding-left: 0;
+			padding-left: 6px;
 
 			
 			&:nth-child(odd){
@@ -268,6 +265,10 @@ main{
 	ul{
 		font-weight: 700;
 
+		li{
+			padding-left: 6px;
+		}
+
 		li:nth-child(3){
 			&::after{
 				content: " (Spouse)";
@@ -280,7 +281,7 @@ main{
 				display:block;
 				border-top: 2px solid $soft_green;
 				background-color: $soft_green;
-				margin: 12px 0;
+				margin: 12px 0 12px -6px;
 				font-size: 18px;
 				padding: 5px;
 
@@ -310,7 +311,7 @@ main{
 		
 		li{
 			list-style-type: none;
-			padding-left: 0;
+			padding-left: 6px;
 
 			
 			&:nth-child(odd){
