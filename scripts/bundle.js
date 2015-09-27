@@ -12756,6 +12756,9 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#F9F9F9' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
+			$('.campaigns_1').hide();
+			$('.overview_1').show();
+			$('.donors_1').hide();
 		},
 		goCampaigns: function goCampaigns() {
 			$('.top_campaigns').hide();
@@ -12770,6 +12773,9 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
+			$('.campaigns_1').show();
+			$('.overview_1').hide();
+			$('.donors_1').hide();
 		},
 		goSelectedCampaign: function goSelectedCampaign(id) {
 			$('.top_campaigns').hide();
@@ -12786,6 +12792,9 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#F9F9F9' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#C8D3C8' });
+			$('.campaigns_1').show();
+			$('.overview_1').hide();
+			$('.donors_1').hide();
 		},
 		goDonors: function goDonors() {
 			$('.top_campaigns').hide();
@@ -12800,6 +12809,9 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
+			$('.campaigns_1').hide();
+			$('.overview_1').hide();
+			$('.donors_1').show();
 		},
 		goSelectedDonor: function goSelectedDonor(id) {
 			$('.top_campaigns').hide();
@@ -12814,6 +12826,9 @@ $(document).ready(function () {
 			$campaignTab.css({ 'background-color': '#C8D3C8' });
 			$overviewTab.css({ 'background-color': '#C8D3C8' });
 			$donorsTab.css({ 'background-color': '#F9F9F9' });
+			$('.campaigns_1').hide();
+			$('.overview_1').hide();
+			$('.donors_1').show();
 		}
 	});
 	var foo = new Router();
