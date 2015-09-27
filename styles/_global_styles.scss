@@ -33,6 +33,7 @@ header{
 		border: 2px solid $off_white;
 		padding: 4px;
 		margin-left: 10px;
+		margin-right: 6px;
 
 
 	}
@@ -204,6 +205,7 @@ main{
 }
 
 .top_campaigns, .top_donors{
+	min-width: 400px;
 	li{
 		line-height: 2em;
 	}
@@ -258,8 +260,6 @@ main{
 	clear:left;
 	width: 100%;
 	max-width: 800px;
-	height: 500px;
-	overflow-y: hide;
 
 	a{
 		line-height: 1.6em
@@ -271,6 +271,19 @@ main{
 		li:nth-child(3){
 			&::after{
 				content: " (Spouse)";
+			}
+		}
+
+		li:nth-child(4){
+			&::after{
+				content:"History";
+				display:block;
+				border-top: 2px solid $soft_green;
+				background-color: $soft_green;
+				margin: 12px 0;
+				font-size: 18px;
+				padding: 5px;
+
 			}
 		}
 	}
@@ -318,6 +331,7 @@ main{
 		margin-left: 1%;
 		overflow-x: scroll;
 		text-overflow: ellipsis;
+		
 	}
 }
 
